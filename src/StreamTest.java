@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public class StreamTest {
-	public static final int WordNum = 10;
+	public static final int WordNum = 10;	//対象とする単語の文字数
 	
 	public static final String text =
 			"Alice was beginning to get very tired of sitting by "
@@ -31,16 +31,18 @@ public class StreamTest {
 			+ "rabbit-hole under the hedge."; 
 	
 	public static void main(String[] args){
-		List<String> list = Arrays.asList(text.split("[^a-zA-Z\\-]+"));
+		List<String> list = Arrays.asList(text.split("[^a-zA-Z\\-]+"));	//単語ごとに分割
 		
+		//文字数がWordNum以上の単語数表示
 		System.out.println("文章中に" + WordNum + "文字以上の単語は"
 				+ list.stream().filter(word -> word.length() >= WordNum).distinct().count()
 				+ "個あります．\n"
 				+ "******\t******\t******\t******");
 		
+		//文字数がWordNum以上の単語と文字数表示
 		list.stream()
-		.filter(word -> word.length() >= WordNum)
-		.distinct()
-		.forEach(word -> System.out.println("[" + word + "]:文字数:" + word.length()));
+			.filter(word -> word.length() >= WordNum)
+			.distinct()
+			.forEach(word -> System.out.println("[" + word + "]:文字数:" + word.length()));
 	}
 }
