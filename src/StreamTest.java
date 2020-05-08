@@ -30,6 +30,7 @@ public class StreamTest {
 			+ "and fortunately was just in time to see it pop down a large "
 			+ "rabbit-hole under the hedge."; 
 	
+	
 	public static void main(String[] args){
 		List<String> list = Arrays.asList(text.split("[^a-zA-Z\\-]+"));	//単語ごとに分割
 		
